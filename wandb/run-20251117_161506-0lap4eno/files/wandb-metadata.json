@@ -1,0 +1,117 @@
+{
+    "os": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "python": "3.11.14",
+    "heartbeatAt": "2025-11-18T00:15:07.388487",
+    "startedAt": "2025-11-18T00:15:06.728154",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config",
+        "config/general_config.yaml",
+        "--density_parameters_path",
+        "config/density_parameters/5d_gmm.yaml",
+        "--density",
+        "gmm",
+        "--dimension",
+        "5"
+    ],
+    "state": "running",
+    "program": "/home/lu/Documents/ZOD-MC/main.py",
+    "codePathLocal": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/KevinRojas1499/ZOD-MC.git",
+        "commit": "94236c3bb47e85917fbed6ef8e5f49697b00c99c"
+    },
+    "email": "alexlurand@gmail.com",
+    "root": "/home/lu/Documents/ZOD-MC",
+    "host": "lu-System-Product-Name",
+    "username": "lu",
+    "executable": "/home/lu/anaconda3/envs/zodmc/bin/python3",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3950.0152500000004,
+        "min": 800.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 4700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 4700.184,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 4699.999,
+            "min": 800.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 800.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 915.3232879638672,
+            "used": 746.1691398620605
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1080 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1080 Ti",
+            "memory_total": 11811160064
+        }
+    ],
+    "memory": {
+        "total": 62.71792221069336
+    }
+}

@@ -1,0 +1,3 @@
+n_blocks: 30
+block_dim: 1
+energy_type: 'double_well'

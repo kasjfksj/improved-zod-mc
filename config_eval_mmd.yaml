@@ -1,0 +1,26 @@
+mode: eval_mmd
+
+density: gmm
+dimension: 10
+
+eval_mmd: true
+methods_to_run:
+  - rdmc
+  - rejection
+  - ula
+  - proximal
+  - langevin
+
+num_samples_for_rdmc: 10000
+sampling_eps_rdmc: 0.000001
+sampling_eps_rejec: 0.000001
+
+save_folder: ./results_gmm_d10_eval
+
+num_chains_parallel: 512
+langevin_step_size: 0.01
+num_sampler_iterations: 2000
+ula_step_size: 0.02
+proximal_M: 10.0
+proximal_num_iters: 100
+max_iters_optimization: 50

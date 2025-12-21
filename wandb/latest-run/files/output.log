@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/lu/Documents/ZOD-MC_1/main.py", line 62, in <module>
+    main(config)
+  File "/home/lu/Documents/ZOD-MC_1/main.py", line 53, in main
+    run_toy.eval(config)
+  File "/home/lu/Documents/ZOD-MC_1/run_toy.py", line 39, in eval
+    distribution = utils.densities.get_distribution(config,device)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lu/Documents/ZOD-MC_1/utils/densities.py", line 361, in get_distribution
+    params = yaml.safe_load(open(config.density_parameters_path))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType

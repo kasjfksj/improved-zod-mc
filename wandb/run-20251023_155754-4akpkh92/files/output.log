@@ -1,0 +1,6 @@
+Batch 0/1:   0%|                                                                                                              | 0/1 [00:00<?, ?it/s]
+  0%|                                                                                                                        | 0/24 [00:00<?, ?it/s]
+tensor(0, device='cuda:0')
+tensor(0.0392, device='cuda:0')
+
+tensor(1.4212, device='cuda:0')

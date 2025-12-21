@@ -1,0 +1,7 @@
+Batch 0/1:   0%|                                                          | 0/1 [00:00<?, ?it/s]
+
+  0%|                                                                    | 0/24 [00:00<?, ?it/s]
+tensor(0, device='cuda:0')
+tensor(0.1903, device='cuda:0')
+torch.Size([1000, 5]) torch.Size([1000, 5])
+tensor(2.9190, device='cuda:0')
