@@ -1,0 +1,9 @@
+__pycache__/
+models/__pycache__/
+utils/__pycache__/
+*.png
+*.pdf
+*.npy
+*.pt
+*.txt
+wandb/
