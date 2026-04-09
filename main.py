@@ -31,10 +31,11 @@ def parse_arguments():
     p.add_argument('--sde_type', choices=['vp'], default='vp')
     p.add_argument('--multiplier', default=0, type=float)
     p.add_argument('--bias', default=2., type=float)
-
+    p.add_argument('--use_partial_zodmc', action='store_true')
     # Sampling Parameters
-    p.add_argument('--sampling_method', choices=['ei','em'])
+    p.add_argument('--sampling_method', choices=['ei','em','ei_coordwise'])
     p.add_argument('--num_batches', type=int)
+    p.add_argument('--active_dim', type=int)
     p.add_argument('--sampling_batch_size',type=int)
     p.add_argument('--T', type=float) # early stopping    
     p.add_argument('--sampling_eps', type=float) # early stopping

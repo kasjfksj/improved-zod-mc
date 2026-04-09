@@ -4,8 +4,8 @@ score_method: p0t
 p0t_method: rejection
 
 eval_mmd: True
-methods_to_run: [ZOD-MC,RDMC, RSDMC,SLIPS,P_ZOD_MC]
-baselines: [slips,ais,smc,langevin,proximal,parallel]
+methods_to_run: [ P-ZOD-MC, ZOD-MC]
+baselines: []
 
 # Checkpoints
 load_from_ckpt: False 
@@ -42,7 +42,7 @@ bias: 2
 # Sampling parameters
 sampling_method: ei
 num_batches: 1
-sampling_batch_size: 1000
+sampling_batch_size: 100
 T: 2
 sampling_eps: 5e-3
 disc_steps: 25

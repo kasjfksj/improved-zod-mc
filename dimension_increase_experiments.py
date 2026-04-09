@@ -39,7 +39,6 @@ def get_diff_log_z(config, dist, true, device):
         sde = get_sde(config)
         model = get_score_function(config, dist,sde,device)
         log_z = compute_log_normalizing_constant(dist,sde,model,False)
-        print(true, log_z)
         return (true-log_z).abs().cpu().detach().numpy()
 
 def compute_statistic(distribution : utils.densities.MixtureDistribution, samples):
@@ -70,8 +69,8 @@ def eval(config):
 
     tot_samples = config.num_batches * config.sampling_batch_size
     num_methods, method_names = get_method_names(config)
-    dimensions = np.arange(1,8,step=1)
-    print(dimensions)
+    dimensions = np.arange(1,10,step=1)
+    # print(dimensions)
     num_dims = len(dimensions)
     stats = np.zeros([num_methods, num_dims],dtype='double')
     w2_stats = np.zeros([num_methods, num_dims],dtype='double')
@@ -104,6 +103,15 @@ def eval(config):
                     config.num_estimator_batches = 10 * d 
                     config.num_estimator_samples = 10000
                     config.sampling_eps = 5e-3
+                    config.use_partial_zodmc = False
+                elif method == 'P-ZOD-MC':
+                    config.score_method = 'p0t'
+                    config.p0t_method = 'rejection'
+                    config.sampling_eps = config.sampling_eps_rejec
+                    config.num_estimator_batches = 10 * d
+                    config.num_estimator_samples = 10000
+                    config.use_partial_zodmc = True
+                    config.active_dim = 1
                 elif method == 'RDMC':
                     # Reverse Diffusion Monte Carlo
                     distribution.keep_minimizer = False

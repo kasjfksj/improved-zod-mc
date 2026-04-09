@@ -4,7 +4,7 @@ score_method: p0t
 p0t_method: rejection
 
 eval_mmd: True
-methods_to_run: [P-ZOD-MC, ZOD-MC]
+methods_to_run: [ZOD-MC,P-ZOD-MC]
 baselines: []
 
 # Checkpoints

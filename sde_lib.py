@@ -71,6 +71,7 @@ class VP(SDE):
     return t_steps
   
   def prior_sampling(self, shape, device):
+    # Gaussian of N(0, I) at time T
     return torch.randn(*shape, dtype=torch.float32, device=device)
 
 def get_sde(config):

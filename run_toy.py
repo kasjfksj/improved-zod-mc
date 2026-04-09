@@ -9,6 +9,7 @@ import ot
 import numpy as np
 
 def get_run_name(config):
+    print(config)
     tot_samples = config.num_estimator_batches * config.num_estimator_samples
     if config.score_method == 'quotient-estimator':
         return f"Sampling {config.density} {config.score_method} {tot_samples}"

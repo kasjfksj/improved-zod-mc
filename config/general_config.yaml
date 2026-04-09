@@ -7,17 +7,17 @@ mode: sample
 score_method: p0t
 p0t_method: rejection
 reuse_samples: no
-
+use_partial_zodmc: True
 # Estimator Information
 # Rejection
 max_iters_optimization: 50
 num_estimator_batches: 1
-num_estimator_samples: 10000
+num_estimator_samples: 1000
 # ULA
 num_sampler_iterations: 100
 ula_step_size: 0.001
 num_recursive_steps: 2 # Increasing this makes you use way too much memory and time
-
+active_dim: 1
 # SDEs Parameters
 sde_type: vp
 multiplier: 0

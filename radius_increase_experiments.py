@@ -95,7 +95,17 @@ def eval(config):
                     config.T = 10
                     config.num_estimator_batches = 1
                     config.num_estimator_samples = 10000
+                    config.use_partial_zodmc = False
                     config.sampling_eps = 5e-3
+                elif method == 'P-ZOD-MC':
+                    config.score_method = 'p0t'
+                    config.p0t_method = 'rejection'
+                    config.T = 10
+                    config.sampling_eps = config.sampling_eps_rejec
+                    config.num_estimator_batches = 1
+                    config.num_estimator_samples = 10000
+                    config.use_partial_zodmc = True
+                    config.active_dim = 1
                 elif method == 'RDMC': 
                     # Reverse Diffusion Monte Carlo
                     distribution.keep_minimizer = False
@@ -117,7 +127,7 @@ def eval(config):
                     config.ula_step_size = 0.01
                     config.sampling_eps = 5e-2 #RDMC is more sensitive to the early stopping
                     
-                    
+                print(method,"-----")
                 samples_all[k][i] = sample.sample(config,distribution)
                 mmd_stats[k][i] = mmd.get_mmd_squared(samples_all[k][i],samples_all[0][i]).detach().item()
                 w2_stats[k][i] = utils.metrics.get_w2(samples_all[k][i],samples_all[0][i]).detach().item()
@@ -235,7 +245,8 @@ def eval(config):
             fig = utils.plots.plot_all_samples(samples_all[:,i,:,:],
                                             method_names,
                                             xlim,ylim,distribution.log_prob)
-            fig.savefig(os.path.join(folder,f'radius_{r}.png'), bbox_inches='tight')
+
+            fig.savefig(os.path.join(folder,f'radius_{r}_12.png'), bbox_inches='tight')
             plt.close(fig)
     
     # Save method names and samples

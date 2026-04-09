@@ -52,7 +52,7 @@ def parse_arguments():
     p.add_argument('--bias', default=2., type=float)
 
     # Sampling Parameters
-    p.add_argument('--sampling_method', choices=['ei','em'])
+    p.add_argument('--sampling_method', choices=['ei','em','ei_coordwise'])
     p.add_argument('--num_batches', type=int)
     p.add_argument('--sampling_batch_size',type=int)
     p.add_argument('--T', type=float) # early stopping    

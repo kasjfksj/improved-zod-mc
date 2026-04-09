@@ -58,7 +58,6 @@ def eval(config):
 
     k = 0
     if eval_stats:
-        # Ground Truth Real time sampling
         real_samples = distribution.sample(tot_samples)
         method_names[0] = 'Ground Truth'
         for i in range(len(oracle_complexity)):
@@ -74,15 +73,8 @@ def eval(config):
             method_names[k] = method
             for i, gc in enumerate(oracle_complexity):
                 start = time.time()
-                if method == 'P-ZOD-MC':
-                    config.score_method = 'p0t'
-                    config.p0t_method = 'rejection'
-                    config.sampling_eps = config.sampling_eps_rejec
-                    config.num_estimator_batches = 10
-                    config.num_estimator_samples = gc//config.num_estimator_batches
-                    config.use_partial_zodmc = True
-                    config.active_dim = 1
-                elif method == 'ZOD-MC':
+
+                if method == 'ZOD-MC':
                     config.score_method = 'p0t'
                     config.p0t_method = 'rejection'
                     config.sampling_eps = config.sampling_eps_rejec
@@ -90,6 +82,16 @@ def eval(config):
                     config.num_estimator_samples = gc//config.num_estimator_batches
                     config.use_partial_zodmc = False
                     config.use_adaptive = False
+
+
+                elif method == 'P-ZOD-MC':
+                    config.score_method = 'p0t'
+                    config.p0t_method = 'rejection'
+                    config.sampling_eps = config.sampling_eps_rejec
+                    config.num_estimator_batches = 10
+                    config.num_estimator_samples = gc//config.num_estimator_batches
+                    config.use_partial_zodmc = True
+                    config.active_dim = 1
                 elif method=='A-ZOD-MC':
                     config.score_method = 'p0t'
                     config.p0t_method = 'rejection'
@@ -238,6 +240,7 @@ def eval(config):
                         w2_stats[k][i] = utils.metrics.get_w2(samples_all_methods[k][i],real_samples).detach().item()
         
     # Save method names and samples
+    print(folder, 'mmd.txt')
     save_file = os.path.join(folder,f'samples_{config.density}.pt')
     np.save(os.path.join(folder,'method_names.npy'), np.array(method_names))
     torch.save(samples_all_methods, save_file)
@@ -294,6 +297,6 @@ def eval(config):
         ax_time.set_xlabel('Gradient Complexity')
         ax_time.set_ylabel('Time (s)')
         ax_time.legend(loc='upper left')
-
+        print(f'mmd_results_{dim}_{config.density}.pdf')
         fig.savefig(os.path.join(folder,f'mmd_results_{dim}_{config.density}.pdf'),bbox_inches='tight')
         fig_time.savefig(os.path.join(folder,f'time_results_{dim}_{config.density}.pdf'),bbox_inches='tight')

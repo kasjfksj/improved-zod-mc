@@ -3,7 +3,7 @@ mode: eval_mmd
 score_method: p0t
 p0t_method: rejection
 
-methods_to_run: [ZOD-MC,RDMC,RSDMC]
+methods_to_run: [ZOD-MC,P-ZOD-MC]
 baselines: [slips,ais, smc,langevin,proximal,parallel]
 
 # load_from_ckpt: True
